@@ -1,4 +1,4 @@
-package me.curzbin.bottomdialog;
+package eme.com.bottomdialog;
 
 import org.junit.Test;
 

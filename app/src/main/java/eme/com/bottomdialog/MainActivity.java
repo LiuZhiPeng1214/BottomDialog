@@ -1,4 +1,4 @@
-package me.curzbin.bottomdialog;
+package eme.com.bottomdialog;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -6,9 +6,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Toast;
 
-import me.curzbin.library.BottomDialog;
-import me.curzbin.library.Item;
-import me.curzbin.library.OnItemClickListener;
+import eme.com.library.BottomDialog;
+import eme.com.library.Item;
+import eme.com.library.OnItemClickListener;
 
 public class MainActivity extends AppCompatActivity {
 

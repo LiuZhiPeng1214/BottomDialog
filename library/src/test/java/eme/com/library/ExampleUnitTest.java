@@ -1,4 +1,4 @@
-package me.curzbin.library;
+package eme.com.library;
 
 import org.junit.Test;
 
