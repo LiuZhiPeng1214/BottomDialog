@@ -22,7 +22,7 @@ BottomDialog 只需要一句代码即可轻松显示底部弹框
     </menu>
     
 ## 设置 Layout 样式
-
+```
     new BottomDialog(MainActivity.this)
         .title(R.string.title_item)             //设置标题
         .layout(BottomDialog.GRID)              //设置内容layout,默认为线性(LinearLayout)
@@ -38,7 +38,7 @@ BottomDialog 只需要一句代码即可轻松显示底部弹框
             }
         })
         .show();
-
+```
 ## Listener 事件监听方式调用
     new BottomDialog(context)
         .title(R.string.share_title)
