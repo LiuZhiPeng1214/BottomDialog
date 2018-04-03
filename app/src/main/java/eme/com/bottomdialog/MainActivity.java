@@ -24,8 +24,11 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 new BottomDialog(MainActivity.this)
-                        .title(R.string.share_title)
+//                        .title(R.string.share_title)
                         .orientation(BottomDialog.HORIZONTAL)
+                        .background(R.color.white)
+                        .cancel("取消分享")
+                        .setRow(3)
                         .inflateMenu(R.menu.menu_share, new OnItemClickListener() {
                             @Override
                             public void click(Item item) {
@@ -83,6 +86,8 @@ public class MainActivity extends AppCompatActivity {
                 new BottomDialog(MainActivity.this)
                         .title(R.string.title_item)
                         .layout(BottomDialog.GRID)
+                        .setRow(3)
+                        .background(R.color.white)
                         .orientation(BottomDialog.VERTICAL)
                         .inflateMenu(R.menu.menu_grid, new OnItemClickListener() {
                             @Override

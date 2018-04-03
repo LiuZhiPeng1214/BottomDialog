@@ -45,7 +45,10 @@ public class BottomDialog {
         customDialog.title(title);
         return this;
     }
-
+    public BottomDialog cancel(String cancel) {
+        customDialog.setCancelText(cancel);
+        return this;
+    }
     public BottomDialog title(int title) {
         customDialog.title(title);
         return this;
@@ -53,6 +56,11 @@ public class BottomDialog {
 
     public BottomDialog background(int res) {
         customDialog.background(res);
+        return this;
+    }
+
+    public BottomDialog setRow(int row) {
+        customDialog.setRow(row);
         return this;
     }
 
@@ -103,6 +111,8 @@ public class BottomDialog {
 
         private int orientation;
         private int layout;
+        public TextView mCancel;
+        private int row = 3;
 
         CustomDialog(Context context) {
             super(context, R.style.BottomDialog);
@@ -119,13 +129,14 @@ public class BottomDialog {
 
             setContentView(R.layout.bottom_dialog);
             setCancelable(true);
-            setCanceledOnTouchOutside(true);
+            setCanceledOnTouchOutside(false);
             getWindow().setGravity(Gravity.BOTTOM);
             getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
 
             background = (LinearLayout) findViewById(R.id.background);
             titleView = (TextView) findViewById(R.id.title);
             container = (LinearLayout) findViewById(R.id.container);
+            mCancel = (TextView) findViewById(R.id.cancel);
             findViewById(R.id.cancel).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -144,7 +155,7 @@ public class BottomDialog {
             if (layout == LINEAR)
                 manager = new LinearLayoutManager(getContext(), orientation, false);
             else if (layout == GRID)
-                manager = new GridLayoutManager(getContext(), 5, orientation, false);
+                manager = new GridLayoutManager(getContext(), row, orientation, false);
             else manager = new LinearLayoutManager(getContext(), orientation, false);
 
             RecyclerView recyclerView = new RecyclerView(getContext());
@@ -162,6 +173,17 @@ public class BottomDialog {
         public void title(String title) {
             titleView.setText(title);
             titleView.setVisibility(View.VISIBLE);
+        }
+        public void setCancelText(String text) {
+            mCancel.setText(text);
+            mCancel.setVisibility(View.VISIBLE);
+        }
+
+        public void setRow(int row)  {
+            this.row = row;
+        }
+        public int getRow() {
+            return row;
         }
 
         public void layout(int layout) {
@@ -296,7 +318,7 @@ public class BottomDialog {
                     super(view);
 
                     ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-                    params.width = Utils.getScreenWidth(getContext()) / 5;
+                    params.width = Utils.getScreenWidth(getContext()) / row;
 
                     item = new TextView(view.getContext());
                     item.setLayoutParams(params);
