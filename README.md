@@ -5,12 +5,9 @@ BottomDialog 一个自定义的从底部弹出的dialog，仿照微博的分享�
 ![Alt text](/art/horizontal.png) ![Alt text](/art/vertical.png)
 
 # 导入
-    compile 'top.zibin:BottomDialog:1.0.5'
-
-#Release Notes
-###[v1.0.5, 2016/10/21](https://github.com/Curzibn/BottomDialog/milestone/1)
-
-- 修改多行显示下只有最后一行点击有相应问题
+   	dependencies {
+	        compile 'com.github.LiuZhiPeng1214:BottomDialog:v1.0'
+	}
 
 # 使用
 BottomDialog 只需要一句代码即可轻松显示底部弹框
@@ -31,7 +28,10 @@ BottomDialog 只需要一句代码即可轻松显示底部弹框
         .layout(BottomDialog.GRID)              //设置内容layout,默认为线性(LinearLayout)
         .orientation(BottomDialog.VERTICAL)     //设置滑动方向,默认为横向
         .inflateMenu(R.menu.menu_share)         //传人菜单内容
-        .itemClick(new OnItemClickListener() {  //设置监听
+        .background(R.color.white)              //设置背景颜色
+        .cancel("取消分享")                      //设置底部按钮
+        .setRow(3)                              //设置显示列数
+        .itemClick(new OnItemClickListener() {  //设置监听
             @Override
             public void click(Item item) {
                 Toast.makeText(MainActivity.this, getString(R.string.share_title) + item.getTitle(), Toast.LENGTH_LONG).show();
