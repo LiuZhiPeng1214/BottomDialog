@@ -20,22 +20,27 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         findViewById(R.id.horizontal_single).setOnClickListener(new View.OnClickListener() {
+
+            public BottomDialog mBottomDialog;
+
             @Override
             public void onClick(View view) {
 
-                new BottomDialog(MainActivity.this)
-//                        .title(R.string.share_title)
-                        .orientation(BottomDialog.HORIZONTAL)
-                        .background(R.color.white)
-                        .cancel("取消分享")
-                        .setRow(3)
-                        .inflateMenu(R.menu.menu_share, new OnItemClickListener() {
-                            @Override
-                            public void click(Item item) {
-                                Toast.makeText(MainActivity.this, getString(R.string.share_title) + item.getTitle(), Toast.LENGTH_SHORT).show();
-                            }
-                        })
-                        .show();
+                //                        .title(R.string.share_title)
+                mBottomDialog = new BottomDialog(MainActivity.this)
+  //                        .title(R.string.share_title)
+                          .orientation(BottomDialog.HORIZONTAL)
+                          .background(R.color.white)
+                          .cancel("取消分享")
+                          .setRow(3)
+                          .inflateMenu(R.menu.menu_share, new OnItemClickListener() {
+                              @Override
+                              public void click(Item item) {
+                                  Toast.makeText(MainActivity.this, getString(R.string.share_title) + item.getTitle(), Toast.LENGTH_SHORT).show();
+                              }
+                          });
+              mBottomDialog.show();
+
             }
         });
 

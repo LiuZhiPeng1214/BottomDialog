@@ -95,6 +95,9 @@ public class BottomDialog {
     public void show() {
         customDialog.show();
     }
+    public void dissmiss() {
+        customDialog.dismiss();
+    }
 
     private final class CustomDialog extends Dialog {
         private LinearLayout background;
